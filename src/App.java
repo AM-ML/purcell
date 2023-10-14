@@ -1,30 +1,58 @@
-class Ob1 {
-    static String name = "Name";
-    static Integer age = 20;
+class Engine {
+    public void start(){
+        System.out.println("Engine started running.");
+    }
 
-     
-}
-
-
-class Ob2 {
-    static String name = "Name";
-    static Integer age = 20;
-
-
-    public String toString(){
-        return String.format("%s: %3d", name, age);
+    public void stop(){
+        System.out.println("Engine stopped running.");
     }
 }
 
+class Machine extends Engine{
+    @Override
+    public void start(){
+        System.out.println("Engine started running.");
+        System.out.println("Machine started.");
+    }
+
+    @Override
+    public void stop(){
+        System.out.println("Engine stopped running.");
+        System.out.println("Machine stopped.");
+    }
+}
+
+class Car extends Machine {
+    public void turnOn(){
+        this.start();
+        System.out.println("Car is moving.");
+    }
+
+    public void breaks(){
+        System.out.println("Car is breaking");
+        this.stop();
+    }
+}
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Ob1 obj1 = new Ob1();
-
-        System.out.println(obj1); // prints memory location address of the object
+        Engine engine = new Engine();
+        engine.start();
+        engine.stop();
         
-        Ob2 obj2 = new Ob2();
+        System.out.println();
+        System.out.println();
 
-        System.out.println(obj2); // uses the toString() method to represent the object
+        Machine mach = new Machine();
+        mach.start();
+        mach.stop();
+        
+        System.out.println();
+        System.out.println();
+
+        Car car = new Car();
+        car.start();
+        car.stop();
+        car.turnOn();
     }
 }
