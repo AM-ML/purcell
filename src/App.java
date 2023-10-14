@@ -1,22 +1,42 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+class Thing {
+    public String name;
+    public String description;
+    Thing (String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
-class Robot {
-    public void speak(String x) {
-        System.out.println("rob says: " + x);
-        System.out.println("    < ------- >");
-        System.out.println("     | o   o |");
-        System.out.println("     |   ||  |");
-        System.out.println("     | \\___/ |");
-        System.out.println("      -------");
+    public void show () {
+        System.out.println(this.name + ": " + this.description);
     }
 }
 
+class Things {
+    public ArrayList<Thing> things = new ArrayList<>();
+
+    public void add(Thing thing){
+        things.add(thing);
+    }
+
+    public void show(){
+        for (Thing thing : things) {
+            System.out.println(thing.name + ": " + thing.description);
+        }
+    }
+}
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-        Robot rob = new Robot();
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Talk to the robot: ");
-        String resp = scan.nextLine();
-        rob.speak(resp);
+        Thing thing1 = new Thing("Milk", "Comes from cows... or other animals.");
+        Thing thing2 = new Thing("Water", "Essential for living.");
+
+        Things things = new Things();
+        
+        things.add(thing1);
+        things.add(thing2);
+        
+        things.show();
     }
 }
