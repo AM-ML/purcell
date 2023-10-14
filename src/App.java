@@ -1,41 +1,30 @@
+class Ob1 {
+    static String name = "Name";
+    static Integer age = 20;
+
+     
+}
+
+
+class Ob2 {
+    static String name = "Name";
+    static Integer age = 20;
+
+
+    public String toString(){
+        return String.format("%s: %3d", name, age);
+    }
+}
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-      //* [//*] -> are the actual steps that run while compiling
-      //?   Memory Consuming
+        Ob1 obj1 = new Ob1();
+
+        System.out.println(obj1); // prints memory location address of the object
         
-            String s = "";
-            
-      //*  String temp = "String 1.";
-      //*  s = s + temp; 
+        Ob2 obj2 = new Ob2();
 
-            s += "String 1.";    
-            
-      //*  String temp2 = "String 2.";
-      //*  s = s + temp2;
-
-            s += "String 2.";
-            
-      //*  String temp3 = "String 3.";
-      //*  s = s + temp3;
-      
-            s += "String 3."; 
-
-        //? Not as memory consuming
-
-        StringBuilder st = new StringBuilder("");
-
-        st.append("String 1.");
-        st.append("String 2.");
-        st.append("String 3.");
-        
-        StringBuilder str = new StringBuilder("");
-        str.append("String 1.")
-           .append("String 2.")
-           .append("String 3.");
-
-        System.out.println(s);
-        System.out.println(st);
-        System.out.println(str);
-        System.out.printf("formatted output: %20.0f, %.1f, %.2f", 1.2, 3.4, 5.6); // printf(formatted, args..);
+        System.out.println(obj2); // uses the toString() method to represent the object
     }
 }
